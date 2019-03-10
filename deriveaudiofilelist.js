@@ -1,28 +1,32 @@
 let dateAssemble = (req, resp, next) => {
   let date = new Date();
-  let hours = 2; //date.getHours();
-  let minutes = 4; //date.getMinutes();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
   let listofaudiofiles = [];
   let firstpart, minutesFile;
-  hourFile = "./music/" + `${hours}` + ".ogg";
-
-  listofaudiofiles.push(hourFile);
+  listofaudiofiles.push("./music/Time Now in Chicago.ogg");
+  if (hours < 13) {
+    hourFile = "./music/" + `${hours}` + " Mani.ogg";
+    listofaudiofiles.push(hourFile);
+  } else {
+    hourFile = "./music/" + `${hours - 12}` + " Mani.ogg";
+    listofaudiofiles.push(hourFile);
+  }
 
   if (minutes <= 20) {
-    minutesFile = "./music/" + `${minutes}` + ".ogg";
+    minutesFile = "./music/" + `${minutes}` + " Nimidangal.ogg";
     listofaudiofiles.push(minutesFile);
   } else {
     if (minutes % 10 == 0) {
-      minutesFile = "./music/" + `${minutes}` + ".ogg";
+      minutesFile = "./music/" + `${minutes}` + " Nimidangal.ogg";
       listofaudiofiles.push(minutesFile);
     } else {
       firstPart = minutes - (minutes % 10);
-      minutesFile = "./music/" + `${firstPart}` + ".ogg";
-
+      minutesFile = "./music/" + `${firstPart}` + " M.ogg";
       listofaudiofiles.push(minutesFile);
-      secondPart = minutes % 10;
 
-      secondPartFile = "./music/" + `${secondPart}` + ".ogg";
+      secondPart = minutes % 10;
+      secondPartFile = "./music/" + `${secondPart}` + " Nimidangal.ogg";
       listofaudiofiles.push(secondPartFile);
     }
   }
