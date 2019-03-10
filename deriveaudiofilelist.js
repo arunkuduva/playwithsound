@@ -9,10 +9,10 @@ let dateAssemble = (req, resp, next) => {
   if (hours >= 4 && hours <= 10) {
     listofaudiofiles.push("./music/Kaalai.ogg");
   }
-  if (hours >= 11 && hours <= 2) {
+  if (hours >= 11 && hours <= 14) {
     listofaudiofiles.push("./music/Mathiyam.ogg");
   }
-  if (hours >= 3 && hours <= 6) {
+  if (hours >= 15 && hours <= 18) {
     listofaudiofiles.push("./music/Maalai.ogg");
   } else {
     listofaudiofiles.push("./music/iravu.ogg");
@@ -22,7 +22,6 @@ let dateAssemble = (req, resp, next) => {
     listofaudiofiles.push(hourFile);
   } else {
     hourFile = "./music/" + `${hours - 12}` + " Mani.ogg";
-
     listofaudiofiles.push(hourFile);
   }
 
